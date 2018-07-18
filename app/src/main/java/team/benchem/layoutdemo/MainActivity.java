@@ -6,17 +6,27 @@ import android.databinding.DataBindingUtil;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import team.benchem.layoutdemo.adapter.TodoModelRecyclerViewAdapter;
 import team.benchem.layoutdemo.databinding.ActivityMainBinding;
 import team.benchem.layoutdemo.viewmodel.TodoModel;
 
 public class MainActivity extends Activity {
+
+    final List<TodoModel> mDataSource = new ArrayList<>();
+
+    TodoModelRecyclerViewAdapter mTodoRecyclerAdapter;
 
     final TodoModel todoModel = new TodoModel();
 
@@ -35,6 +45,14 @@ public class MainActivity extends Activity {
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setTodoItem(todoModel);
         binding.setEvenHandler(this);
+
+        TodoModel item1 = new TodoModel();
+        item1.setTodo("Todo Item 1");
+        mDataSource.add(item1);
+        mTodoRecyclerAdapter = new TodoModelRecyclerViewAdapter(this, mDataSource);
+        binding.activityMainRecyleview.setAdapter(mTodoRecyclerAdapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        binding.activityMainRecyleview.setLayoutManager(linearLayoutManager);
     }
 
     @Override
@@ -79,7 +97,16 @@ public class MainActivity extends Activity {
         Log.i(LogTAG, "MainActivity.onDestroy");
     }
 
-    public void onAddTodoClick(View view){
+    public void onAddTodoClick(View view) {
+        TodoModel newItem = new TodoModel();
+        newItem.setTodo(todoModel.getTodo());
+        mDataSource.add(newItem);
+        mTodoRecyclerAdapter.notifyDataSetChanged();
+
+        todoModel.setTodo("");
+    }
+
+    public void onOpenClick(View view){
         Intent intent = new Intent(MainActivity.this, AddTodoActivity.class);
         Bundle bundle = new Bundle();
         String todoModelJson = JSON.toJSONString(todoModel);

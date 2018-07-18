@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="todoItem"
+            type="team.benchem.layoutdemo.viewmodel.TodoModel" />
+
+    </data>
+
+    <FrameLayout
+        android:background="#44ff0000"
+        android:layout_width="match_parent"
+        android:layout_height="72dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{todoItem.todo}"/>
+
+    </FrameLayout>
+
+</layout>
