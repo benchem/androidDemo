@@ -3,8 +3,10 @@ package team.benchem.layoutdemo;
 import android.app.Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -18,18 +20,63 @@ public class MainActivity extends Activity {
 
     final TodoModel todoModel = new TodoModel();
 
+    final String LogTAG = "layoutDemo";
+
     final int ADDTODO_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Log.i(LogTAG, "MainActivity.onCreate");
+        
         todoModel.setTodo("Hello world!");
 
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setTodoItem(todoModel);
         binding.setEvenHandler(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(LogTAG, "MainActivity.onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(LogTAG, "MainActivity.onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(LogTAG, "MainActivity.onPause");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        Log.i(LogTAG, "MainActivity.onSaveInstanceState");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(LogTAG, "MainActivity.onStop");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(LogTAG, "MainActivity.onRestart");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(LogTAG, "MainActivity.onDestroy");
     }
 
     public void onAddTodoClick(View view){

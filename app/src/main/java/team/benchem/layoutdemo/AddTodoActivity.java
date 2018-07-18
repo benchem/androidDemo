@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 
 import com.alibaba.fastjson.JSONObject;
@@ -16,10 +18,13 @@ public class AddTodoActivity extends Activity {
 
     private TodoModel todoModel;
 
+    final String LogTAG = "layoutDemo";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addtodo);
+        Log.i(LogTAG, "AddTodoActivity.onCreate");
 
         Intent intent = getIntent();
         String todoJson =  intent.getExtras().getString("todoModel");
@@ -28,6 +33,48 @@ public class AddTodoActivity extends Activity {
         ActivityAddtodoBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_addtodo);
         binding.setTodoObj(todoModel);
         binding.setEventHanlder(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(LogTAG, "AddTodoActivity.onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(LogTAG, "AddTodoActivity.onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(LogTAG, "AddTodoActivity.onPause");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        Log.i(LogTAG, "AddTodoActivity.onSaveInstanceState");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(LogTAG, "AddTodoActivity.onStop");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(LogTAG, "AddTodoActivity.onRestart");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(LogTAG, "AddTodoActivity.onDestroy");
     }
 
     public void onOkClick(View view){
