@@ -3,13 +3,11 @@ package team.benchem.layoutdemo;
 import android.app.Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.os.PersistableBundle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -65,6 +63,18 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         Log.i(LogTAG, "MainActivity.onResume");
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Log.i(LogTAG, "MainActivity.onAttachedToWindow");
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        Log.i(LogTAG, "MainActivity.onWindowFocusChanged");
     }
 
     @Override

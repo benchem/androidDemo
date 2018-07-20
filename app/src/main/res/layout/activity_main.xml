@@ -8,34 +8,43 @@
             name="evenHandler"
             type="team.benchem.layoutdemo.MainActivity" />
     </data>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:gravity="top">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Enter variable value" />
-
-        <EditText
+            android:id="@+id/activityMain_tvToplabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@={todoItem.todo}"/>
+            android:text="Enter variable value"/>
+
+        <EditText
+            android:id="@+id/activityMain_etTodoInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={todoItem.todo}"
+            android:layout_below="@+id/activityMain_tvToplabel"/>
 
         <Button
+            android:id="@+id/activityMain_btnAddTodo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Todo Item"
-            android:onClick="@{evenHandler::onAddTodoClick}"/>
+            android:onClick="@{evenHandler::onAddTodoClick}"
+            android:layout_below="@+id/activityMain_etTodoInput"/>
 
         <Button
+            android:id="@+id/activityMain_btnOpen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Open"
-            android:onClick="@{evenHandler::onOpenClick}"/>
+            android:onClick="@{evenHandler::onOpenClick}"
+            android:layout_below="@+id/activityMain_btnAddTodo"/>
 
         <GridLayout
+            android:id="@+id/activityMain_glButtons"
+            android:layout_below="@+id/activityMain_btnOpen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
@@ -60,16 +69,13 @@
                 android:onClick="@{evenHandler::onBindingClick}"
                 android:text="Read Binding Model" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/activity_main_recyleview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_columnSpan="2"
-                android:layout_columnWeight="1"
-                android:layout_row="1" />
-
         </GridLayout>
 
-    </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/activity_main_recyleview"
+            android:layout_below="@+id/activityMain_glButtons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
 </layout>

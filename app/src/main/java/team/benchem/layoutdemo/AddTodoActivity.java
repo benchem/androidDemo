@@ -48,6 +48,18 @@ public class AddTodoActivity extends Activity {
     }
 
     @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Log.i(LogTAG, "AddTodoActivity.onAttachedToWindow");
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        Log.i(LogTAG, "AddTodoActivity.onWindowFocusChanged");
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         Log.i(LogTAG, "AddTodoActivity.onPause");
