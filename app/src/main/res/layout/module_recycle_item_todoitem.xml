@@ -7,16 +7,31 @@
 
     </data>
 
-    <FrameLayout
-        android:background="#44ff0000"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="72dp">
+        android:layout_height="66dp">
+
+        <CheckBox
+            android:id="@+id/recycleItem_todoItem_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{todoItem.todo}"/>
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@id/recycleItem_todoItem_checkBox"
+            android:text="@{todoItem.todo}" />
 
-    </FrameLayout>
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/delete"/>
+
+    </RelativeLayout>
 
 </layout>
