@@ -125,6 +125,11 @@ public class MainActivity extends Activity {
         startActivityForResult(intent, ADDTODO_ACTIVITY_REQUEST_CODE);
     }
 
+    public void onOpenFragmentDemo(View view){
+        Intent intent = new Intent(MainActivity.this, FragmentDemoActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

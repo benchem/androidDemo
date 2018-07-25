@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">layoutDemo</string>
     <string name="delete">删除</string>
+    <string name="activity_main_openFragmentdemo">Open Fragement Demo</string>
+    <string name="module_fragment_leftTitle">Left Fragment</string>
+    <string name="module_fragment_rightTitle">Right Fragment</string>
 </resources>

@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddTodoActivity"/>
+        <activity android:name=".FragmentDemoActivity"/>
     </application>
 
 </manifest>

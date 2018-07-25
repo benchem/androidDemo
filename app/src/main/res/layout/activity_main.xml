@@ -71,11 +71,21 @@
 
         </GridLayout>
 
+        <Button
+            android:id="@+id/activityMain_btnOpenFragmentDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activityMain_glButtons"
+            android:text="@string/activity_main_openFragmentdemo"
+            android:onClick="@{evenHandler::onOpenFragmentDemo}"/>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/activity_main_recyleview"
-            android:layout_below="@+id/activityMain_glButtons"
+            android:layout_below="@+id/activityMain_btnOpenFragmentDemo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+
+
 
     </RelativeLayout>
 </layout>

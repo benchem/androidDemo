@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/module_activity_fragmentdemo_toplayout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <fragment
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                class="team.benchem.layoutdemo.LeftFragment">
+            </fragment>
+
+            <fragment
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                class="team.benchem.layoutdemo.RightFragment">
+            </fragment>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/module_activity_fragmentdemo_btnSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send To Fragment"
+            android:layout_below="@id/module_activity_fragmentdemo_toplayout"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/module_activity_fragmentdemo_btnSend">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+</layout>

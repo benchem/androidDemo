@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/module_fragment_right_labTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/module_fragment_rightTitle"/>
+
+        <EditText
+            android:id="@+id/module_fragment_right_etInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/module_fragment_right_labTitle"/>
+
+        <Button
+            android:id="@+id/module_fragment_right_btnSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:layout_below="@+id/module_fragment_right_etInput"/>
+
+        <TextView
+            android:id="@+id/module_fragment_right_tvMemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rec...."
+            android:layout_below="@id/module_fragment_right_btnSend"/>
+
+    </RelativeLayout>
+</layout>
