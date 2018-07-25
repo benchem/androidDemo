@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import team.benchem.layoutdemo.databinding.ModuleActivityFragmentdemoBinding;
 
+/**
+ * https://developer.android.com/reference/android/app/Fragment
+ */
 public class FragmentDemoActivity extends Activity {
 
     @Override
@@ -31,7 +34,8 @@ public class FragmentDemoActivity extends Activity {
         RightFragment fragment = RightFragment.newInstance("AAAAA2");
         FragmentTransaction trans =  getFragmentManager().beginTransaction();
         trans.replace(R.id.module_activity_fragmentdemo_rightFragment, fragment);
+        trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        trans.addToBackStack(null);
         trans.commit();
-
     }
 }
