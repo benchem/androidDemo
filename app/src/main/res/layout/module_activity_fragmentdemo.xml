@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="eventHandler"
+            type="team.benchem.layoutdemo.FragmentDemoActivity"/>
+    </data>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,6 +22,7 @@
             </fragment>
 
             <fragment
+                android:id="@+id/module_activity_fragmentdemo_rightFragment"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -30,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Send To Fragment"
-            android:layout_below="@id/module_activity_fragmentdemo_toplayout"/>
+            android:layout_below="@id/module_activity_fragmentdemo_toplayout"
+            android:onClick="@{eventHandler::onSend}"/>
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
