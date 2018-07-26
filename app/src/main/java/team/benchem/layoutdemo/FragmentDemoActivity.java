@@ -41,8 +41,6 @@ public class FragmentDemoActivity extends FragmentActivity {
         RightFragment fragment = RightFragment.newInstance("AAAAA2");
         FragmentTransaction trans =  getFragmentManager().beginTransaction();
         trans.replace(R.id.module_activity_fragmentdemo_rightFragment, fragment);
-        trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        trans.addToBackStack(null);
         trans.commit();
     }
 }
