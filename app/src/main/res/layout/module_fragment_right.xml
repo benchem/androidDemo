@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <data>
+    <data class=".RightFragmentBinding">
         <variable
             name="initText"
             type="java.lang.String" />
@@ -19,6 +19,7 @@
             android:id="@+id/module_fragment_right_etInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@={initText}"
             android:layout_below="@+id/module_fragment_right_labTitle"/>
 
         <Button

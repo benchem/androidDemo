@@ -15,4 +15,6 @@ public class LeftFragment extends Fragment {
         View view = inflater.inflate(R.layout.module_fragment_left, null);
         return view;
     }
+
+
 }
