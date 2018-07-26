@@ -14,13 +14,15 @@
             android:layout_width="match_parent"
             android:layout_height="150dp">
 
-            <fragment
+            <FrameLayout
+                android:id="@+id/module_activity_fragmentdemo_leftFragment"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 class="team.benchem.layoutdemo.LeftFragment" />
 
-            <fragment
+            <FrameLayout
+                android:id="@+id/module_activity_fragmentdemo_rightFragment"
                 class="team.benchem.layoutdemo.RightFragment"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

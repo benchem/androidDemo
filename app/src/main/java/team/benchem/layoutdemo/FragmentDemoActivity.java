@@ -22,20 +22,27 @@ public class FragmentDemoActivity extends FragmentActivity {
 
         ModuleActivityFragmentdemoBinding binding = DataBindingUtil.setContentView(this, R.layout.module_activity_fragmentdemo);
         binding.setEventHandler(this);
+
+        LeftFragment leftFragment = new LeftFragment();
+        RightFragment rightFragment = new RightFragment();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.module_activity_fragmentdemo_leftFragment, leftFragment);
+        transaction.replace(R.id.module_activity_fragmentdemo_rightFragment, rightFragment);
+        transaction.commit();
     }
 
     public void onSend(View view){
 
         //方法1
-        TextView textView = (TextView) findViewById(R.id.module_fragment_left_tvMemo);
+        TextView textView = findViewById(R.id.module_fragment_left_tvMemo);
         textView.setText("AAAAA1");
 
         //方法2
-//        RightFragment fragment = RightFragment.newInstance("AAAAA2");
-//        FragmentTransaction trans =  getFragmentManager().beginTransaction();
-//        trans.replace(R.id.module_activity_fragmentdemo_rightFragment, fragment);
-//        trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-//        trans.addToBackStack(null);
-//        trans.commit();
+        RightFragment fragment = RightFragment.newInstance("AAAAA2");
+        FragmentTransaction trans =  getFragmentManager().beginTransaction();
+        trans.replace(R.id.module_activity_fragmentdemo_rightFragment, fragment);
+        trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        trans.addToBackStack(null);
+        trans.commit();
     }
 }
